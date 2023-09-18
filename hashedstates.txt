@@ -1,0 +1,380 @@
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+Therefore [16] = alpha: -1000000, beta: 1000000, eval: 60
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 33|wG2 is at (0, 0) and has neighbors:
+Therefore [115] = alpha: -1000000, beta: 60, eval: 60
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 34|wG3 is at (0, 0) and has neighbors:
+Therefore [186] = alpha: -1000000, beta: 60, eval: 60
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 36|wB1 is at (0, 0) and has neighbors:
+Therefore [628] = alpha: -1000000, beta: 60, eval: 60
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 37|wB2 is at (0, 0) and has neighbors:
+Therefore [1173] = alpha: -1000000, beta: 60, eval: 60
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 38|wA1 is at (0, 0) and has neighbors:
+Therefore [2486] = alpha: -1000000, beta: 60, eval: 64
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 39|wA2 is at (0, 0) and has neighbors:
+Therefore [5047] = alpha: -1000000, beta: 60, eval: 64
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 40|wA3 is at (0, 0) and has neighbors:
+Therefore [10296] = alpha: -1000000, beta: 60, eval: 64
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 41|wS1 is at (0, 0) and has neighbors:
+Therefore [21049] = alpha: -1000000, beta: 60, eval: 60
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 42|wS2 is at (0, 0) and has neighbors:
+Therefore [43066] = alpha: -1000000, beta: 60, eval: 60
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (48, 28)
+-> (-48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 33|wG2 is at (-48, 28) and has neighbors:
+-> (0, 0)
+Therefore [536871001] = alpha: -1000000, beta: 1000000, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (48, 28)
+-> (-48, -28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 33|wG2 is at (-48, -28) and has neighbors:
+-> (0, 0)
+Therefore [536871001] = alpha: -1000000, beta: 29, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (48, 28)
+-> (0, -56)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 33|wG2 is at (0, -56) and has neighbors:
+-> (0, 0)
+Therefore [536871001] = alpha: -1000000, beta: 29, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (48, 28)
+-> (-48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 34|wG3 is at (-48, 28) and has neighbors:
+-> (0, 0)
+Therefore [536871066] = alpha: -1000000, beta: 29, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (48, 28)
+-> (-48, -28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 34|wG3 is at (-48, -28) and has neighbors:
+-> (0, 0)
+Therefore [536871066] = alpha: -1000000, beta: 29, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (48, 28)
+-> (0, -56)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 34|wG3 is at (0, -56) and has neighbors:
+-> (0, 0)
+Therefore [536871066] = alpha: -1000000, beta: 29, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, 28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 35|wQ1 is at (-48, 28) and has neighbors:
+-> (0, 0)
+Therefore [536871195] = alpha: -1000000, beta: 29, eval: 23
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, -28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 35|wQ1 is at (-48, -28) and has neighbors:
+-> (0, 0)
+Therefore [536871195] = alpha: -1000000, beta: 23, eval: 23
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (0, -56)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 35|wQ1 is at (0, -56) and has neighbors:
+-> (0, 0)
+Therefore [536871195] = alpha: -1000000, beta: 23, eval: 23
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, 28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 36|wB1 is at (-48, 28) and has neighbors:
+-> (0, 0)
+Therefore [536871452] = alpha: -1000000, beta: 23, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, -28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 36|wB1 is at (-48, -28) and has neighbors:
+-> (0, 0)
+Therefore [536871452] = alpha: -1000000, beta: 23, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (0, -56)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 36|wB1 is at (0, -56) and has neighbors:
+-> (0, 0)
+Therefore [536871452] = alpha: -1000000, beta: 23, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, 28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 37|wB2 is at (-48, 28) and has neighbors:
+-> (0, 0)
+Therefore [536871965] = alpha: -1000000, beta: 23, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, -28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 37|wB2 is at (-48, -28) and has neighbors:
+-> (0, 0)
+Therefore [536871965] = alpha: -1000000, beta: 23, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (0, -56)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 37|wB2 is at (0, -56) and has neighbors:
+-> (0, 0)
+Therefore [536871965] = alpha: -1000000, beta: 23, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, 28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 38|wA1 is at (-48, 28) and has neighbors:
+-> (0, 0)
+Therefore [536872990] = alpha: -1000000, beta: 23, eval: 33
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, -28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 38|wA1 is at (-48, -28) and has neighbors:
+-> (0, 0)
+Therefore [536872990] = alpha: -1000000, beta: 23, eval: 33
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (0, -56)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 38|wA1 is at (0, -56) and has neighbors:
+-> (0, 0)
+Therefore [536872990] = alpha: -1000000, beta: 23, eval: 33
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, 28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 39|wA2 is at (-48, 28) and has neighbors:
+-> (0, 0)
+Therefore [536875039] = alpha: -1000000, beta: 23, eval: 33
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, -28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 39|wA2 is at (-48, -28) and has neighbors:
+-> (0, 0)
+Therefore [536875039] = alpha: -1000000, beta: 23, eval: 33
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (0, -56)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 39|wA2 is at (0, -56) and has neighbors:
+-> (0, 0)
+Therefore [536875039] = alpha: -1000000, beta: 23, eval: 33
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, 28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 40|wA3 is at (-48, 28) and has neighbors:
+-> (0, 0)
+Therefore [536879120] = alpha: -1000000, beta: 23, eval: 33
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, -28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 40|wA3 is at (-48, -28) and has neighbors:
+-> (0, 0)
+Therefore [536879120] = alpha: -1000000, beta: 23, eval: 33
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (0, -56)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 40|wA3 is at (0, -56) and has neighbors:
+-> (0, 0)
+Therefore [536879120] = alpha: -1000000, beta: 23, eval: 33
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, 28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 41|wS1 is at (-48, 28) and has neighbors:
+-> (0, 0)
+Therefore [536887313] = alpha: -1000000, beta: 23, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, -28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 41|wS1 is at (-48, -28) and has neighbors:
+-> (0, 0)
+Therefore [536887313] = alpha: -1000000, beta: 23, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (0, -56)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 41|wS1 is at (0, -56) and has neighbors:
+-> (0, 0)
+Therefore [536887313] = alpha: -1000000, beta: 23, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, 28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 42|wS2 is at (-48, 28) and has neighbors:
+-> (0, 0)
+Therefore [536903698] = alpha: -1000000, beta: 23, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (-48, -28)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 42|wS2 is at (-48, -28) and has neighbors:
+-> (0, 0)
+Therefore [536903698] = alpha: -1000000, beta: 23, eval: 29
+*****************************************************************************
+
+*************************** Board State *************************************
+Current piece with tag: 32|wG1 is at (0, 0) and has neighbors:
+-> (0, -56)
+-> (48, 28)
+Current piece with tag: 24|bA3 is at (48, 28) and has neighbors:
+-> (0, 0)
+Current piece with tag: 42|wS2 is at (0, -56) and has neighbors:
+-> (0, 0)
+Therefore [536903698] = alpha: -1000000, beta: 23, eval: 29
+*****************************************************************************

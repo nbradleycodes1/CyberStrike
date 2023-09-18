@@ -1,0 +1,261 @@
+---
+title: "Heuristic Analysis"
+subtitle: "Capstone, Team 3"
+author: "Blade Decker"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(knitr)
+library(readr)
+library(dslabs)
+library(sjstats)
+library(kableExtra)
+library(pander)
+library(rpart)
+library(caret)
+
+White_Heuristic_Weights <- read.csv("WhiteHeuristicWeightsTable.csv")
+Black_Heuristic_Weights <- read.csv("BlackHeuristicWeightsTable.csv")
+White_Heuristic_Weights$WL <- as.factor(White_Heuristic_Weights$WL)
+Black_Heuristic_Weights$WL <- as.factor(Black_Heuristic_Weights$WL)
+str(White_Heuristic_Weights)
+str(Black_Heuristic_Weights)
+```
+
+
+```{r trainVStest, echo=FALSE, include=FALSE}
+
+# Separate data into training data and testing data
+index1 <- sample(1:1171,700,replace = FALSE)
+white_test_data <- White_Heuristic_Weights[-index1,]
+white_train_data <- White_Heuristic_Weights[index1,]
+
+index2 <- sample(1:1170,700,replace = FALSE)
+black_test_data <- Black_Heuristic_Weights[-index2,]
+black_train_data <- Black_Heuristic_Weights[index2,]
+
+```
+
+
+# White Heuristics
+## Breakdown of Heuristic Values
+
+This shows a histogram for each heuristic weight, the higher the value, the more wins with that weight.
+
+```{r white predictors, echo=FALSE}
+
+#################### Histograms of Predictors ##############
+# We use this code when we want to look at several predictors 
+# to see if they have good "normal" variation.
+White_Heuristic_Weights %>%
+  gather(-WL, key = "var", value = "value") %>% 
+  ggplot(aes(x = value, color = "lightblue")) +
+  geom_histogram(bins=20,color = "black",fill = "lightblue") +
+  facet_wrap(~ var, scales = "free") + 
+  labs(title = "Distributions of Predictors - White") + 
+  theme(axis.title.x=element_blank(),axis.title.y = element_blank(), axis.text.x = element_blank())
+
+
+############################################################
+
+```
+
+## Classification Tree For White Using RPART
+
+```{r white rpart1, echo=FALSE}
+
+# We fit a classification tree to the data using every variable. The goal is 
+# to predict whether the heuristics equal W or L
+
+rfit <- rpart(WL ~ .,data = white_train_data,method = "class")
+plot(rfit,margin = .01)
+text(rfit,cex = .35,use.n = TRUE)
+
+rpredict <- predict(rfit,white_test_data,type = "class")
+
+
+T <- table(rpredict,white_test_data$WL)
+
+# Copy metrics
+############################ Metrics for Binary Classification #
+T <- as.vector(T)                                              #
+# Accuracy  is (num. correctly predicted)/(total)              #
+accuracy <- (T[1]+T[4])/(T[1]+T[2]+T[3]+T[4]) # correct/total  #
+# Sensitivity is Pr(predict 1 given actually 1) =              #
+sensitivity <- T[4]/(T[3]+T[4])                                #
+# Specificity is Pr(predict 0 given actually 0) =              #            
+specificity <- T[1]/(T[1]+T[2])                                #
+metric <- c("Accuracy","Sensitivity","Specificity")            #
+value <- c(accuracy,sensitivity,specificity)                   #
+data.frame(Metric = metric,Value = round(value,3))             #
+################################################################
+```
+
+
+
+```{r white rpart2, echo=FALSE}
+
+# We copy the code from the first model and use cp = .005.
+rfit <- rpart(WL ~ .,data = white_train_data,method = "class",cp = .005)
+plot(rfit,margin = .01)
+text(rfit,cex = .35,use.n = TRUE)
+
+rpredict <- predict(rfit,white_test_data,type = "class")
+
+# We can't use my code which works for the binary situation anymore. Instead,
+# we use a function in the caret package designed for computing metrics.
+
+confusionMatrix(rpredict,as.factor(white_test_data$WL))
+
+# We can experiment with the cp parameter to see if we can improve results.
+
+```
+
+
+## Logistic Model with All Predictors for White
+
+```{r white logisitic model, echo=FALSE}
+
+#################################################################################################
+# Try a logistic model with **ALL PREDICTORS** 
+glm_fit <- white_train_data %>% glm(WL ~ .,
+                              data =.,family = "binomial")
+p_hat_glm <- predict(glm_fit,white_test_data, type = "response")
+y_hat_glm <- factor(ifelse(p_hat_glm > .5,1,0),levels = c("0","1"))
+
+T <- table(white_test_data$WL,y_hat_glm)
+# Copy metric code:
+############################ Metrics for Binary Classification #
+T <- as.vector(T)                                              #
+# Accuracy  is (num. correctly predicted)/(total)              #
+accuracy <- (T[1]+T[4])/(T[1]+T[2]+T[3]+T[4]) # correct/total  #
+# Sensitivity is Pr(predict 1 given actually 1) =              #
+sensitivity <- T[4]/(T[3]+T[4])                                #
+# Specificity is Pr(predict 0 given actually 0) =              #            
+specificity <- T[1]/(T[1]+T[2])                                #
+metric <- c("Accuracy","Sensitivity","Specificity")            #
+value <- c(accuracy,sensitivity,specificity)                   #
+Tmetrics <- data.frame(Metric = metric,Value = round(value,3)) #
+knitr::kable(Tmetrics)                                         #
+################################################################
+# Acc = .809, Sens = .812, Spec = .807 AVG = .8093
+
+# We seek to remove variables in order to obtain the best model 
+# possible utilizing logistic regression, backwards elimination.
+summary(glm_fit)
+```
+
+
+# Black Heuristics
+## Breakdown of Heuristic Values
+
+This shows a histogram for each heuristic weight, the higher the value, the more wins with that weight.
+
+```{r black predictors, echo=FALSE}
+
+#################### Histograms of Predictors ##############
+# We use this code when we want to look at several predictors 
+# to see if they have good "normal" variation.
+Black_Heuristic_Weights %>%
+  gather(-WL, key = "var", value = "value") %>% 
+  ggplot(aes(x = value, color = "lightblue")) +
+  geom_histogram(bins=20,color = "black",fill = "lightblue") +
+  facet_wrap(~ var, scales = "free") + 
+  labs(title = "Distributions of Predictors - White") + 
+  theme(axis.title.x=element_blank(),axis.title.y = element_blank(), axis.text.x = element_blank())
+
+
+############################################################
+
+```
+
+
+
+## Classification Tree For Black Using RPART
+
+```{r black rpart1, echo=FALSE}
+
+# We fit a classification tree to the data using every variable. The goal is 
+# to predict whether the heuristics equal W or L
+
+rfit <- rpart(WL ~ .,data = black_train_data,method = "class")
+plot(rfit,margin = .01)
+text(rfit,cex = .35,use.n = TRUE)
+
+rpredict <- predict(rfit,black_test_data,type = "class")
+
+
+T <- table(rpredict,black_test_data$WL)
+
+# Copy metrics
+############################ Metrics for Binary Classification #
+T <- as.vector(T)                                              #
+# Accuracy  is (num. correctly predicted)/(total)              #
+accuracy <- (T[1]+T[4])/(T[1]+T[2]+T[3]+T[4]) # correct/total  #
+# Sensitivity is Pr(predict 1 given actually 1) =              #
+sensitivity <- T[4]/(T[3]+T[4])                                #
+# Specificity is Pr(predict 0 given actually 0) =              #            
+specificity <- T[1]/(T[1]+T[2])                                #
+metric <- c("Accuracy","Sensitivity","Specificity")            #
+value <- c(accuracy,sensitivity,specificity)                   #
+data.frame(Metric = metric,Value = round(value,3))             #
+################################################################
+```
+
+
+
+```{r black rpart2, echo=FALSE}
+
+# We copy the code from the first model and use cp = .005.
+rfit <- rpart(WL ~ .,data = black_train_data,method = "class",cp = .005)
+plot(rfit,margin = .01)
+text(rfit,cex = .35,use.n = TRUE)
+
+rpredict <- predict(rfit,black_test_data,type = "class")
+
+# We can't use my code which works for the binary situation anymore. Instead,
+# we use a function in the caret package designed for computing metrics.
+
+confusionMatrix(rpredict,as.factor(black_test_data$WL))
+
+# We can experiment with the cp parameter to see if we can improve results.
+
+```
+
+## Logistic Model with All Predictors for Black
+
+```{r black logisitic model, echo=FALSE}
+
+#################################################################################################
+# Try a logistic model with **ALL PREDICTORS** 
+glm_fit <- black_train_data %>% glm(WL ~ .,
+                              data =.,family = "binomial")
+p_hat_glm <- predict(glm_fit,black_test_data, type = "response")
+y_hat_glm <- factor(ifelse(p_hat_glm > .5,1,0),levels = c("0","1"))
+
+T <- table(black_test_data$WL,y_hat_glm)
+# Copy metric code:
+############################ Metrics for Binary Classification #
+T <- as.vector(T)                                              #
+# Accuracy  is (num. correctly predicted)/(total)              #
+accuracy <- (T[1]+T[4])/(T[1]+T[2]+T[3]+T[4]) # correct/total  #
+# Sensitivity is Pr(predict 1 given actually 1) =              #
+sensitivity <- T[4]/(T[3]+T[4])                                #
+# Specificity is Pr(predict 0 given actually 0) =              #            
+specificity <- T[1]/(T[1]+T[2])                                #
+metric <- c("Accuracy","Sensitivity","Specificity")            #
+value <- c(accuracy,sensitivity,specificity)                   #
+Tmetrics <- data.frame(Metric = metric,Value = round(value,3)) #
+knitr::kable(Tmetrics)                                         #
+################################################################
+# Acc = .809, Sens = .812, Spec = .807 AVG = .8093
+
+# We seek to remove variables in order to obtain the best model 
+# possible utilizing logistic regression, backwards elimination.
+summary(glm_fit)
+```
